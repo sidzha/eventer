@@ -33,6 +33,4 @@ arr.sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
 
 В остальном всё сделал, включая допы.
 
-```
-
-```
+ps: spa сделан с create-react-app. Тут https://github.com/sidzha/js-react-1 можно посмотреть пример аппа на собственной сборке.
