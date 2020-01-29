@@ -1,9 +1,8 @@
 # 🎂
 
-
 # Eventer
 
-SPA based on React/Redux for events in spb.
+SPA based on React/Redux
 
 ## Setup
 
