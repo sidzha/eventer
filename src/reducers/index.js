@@ -57,7 +57,7 @@ const reducer = (state = initialState, action) => {
     case 'SEARCH_EVENTS':
       const searchTerm = action.payload;
       const filtered = state.searchData.filter(event =>
-        event.title.includes(searchTerm)
+        event.title.toLowerCase().includes(searchTerm.toLowerCase())
       );
 
       return {
