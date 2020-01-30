@@ -33,16 +33,21 @@ const reducer = (state = initialState, action) => {
 
     case 'EVENT_ADDED_TO_LIST':
       const addedId = action.payload;
+      //находим в state.events по id favItem и создаем на его основе объект
       const event = state.events.find(event => event.id === addedId);
-      const newItem = {
+      const favItem = {
         id: event.id,
         title: event.title,
         image: event.image
       };
+      //проверям массив избранного на идентичный id
+      const checkFavs = state.favorites.filter(event => event.id === addedId);
 
       return {
         ...state,
-        favorites: [...state.favorites, newItem]
+        favorites:
+          //если длина массива с идентичным id > 0 (он существует), то не добовляем item в список
+          checkFavs.length ? state.favorites : [...state.favorites, favItem]
       };
 
     case 'EVENT_REMOVED_FROM_LIST':
@@ -56,6 +61,7 @@ const reducer = (state = initialState, action) => {
 
     case 'SEARCH_EVENTS':
       const searchTerm = action.payload;
+      //не забываем "опустить" буковки перед сравнением
       const filtered = state.searchData.filter(event =>
         event.title.toLowerCase().includes(searchTerm.toLowerCase())
       );

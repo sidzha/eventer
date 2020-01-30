@@ -16,7 +16,7 @@ const EventsListItem = ({ event, onAddedtoList }) => {
         <div className="media__body">
           <h2>{title}</h2>
           <button onClick={onAddedtoList} className="fav-buton">
-            <i className="fa fa-star"></i>
+            <i className="fa fa-star" aria-hidden="true"></i>
           </button>
         </div>
       </div>
